@@ -4,22 +4,29 @@ public class Ship{
     double cannonDamage = 0;
     int price = 0;
     int aura = 0;
+    String name = "";
+    
 
     public Ship(){
         this.maxHealth = 100;
         this.currentHealth = 100;
         this.cannonDamage = 10;
         this.price = 50;
+        this.name = "Ship";
     }
 
-    public Ship(double maxHealth, double currentHealth, double cannonDamage, int price){
+    public Ship(String name, double maxHealth, double currentHealth, double cannonDamage, int price){
         this.maxHealth = maxHealth;
         this.currentHealth = currentHealth;
         this.cannonDamage = cannonDamage;
         this.price = price;
+        this.name = name;
     }
 
     // Getters
+    public String getName(){
+        return name;
+    }
     public double getMaxHealth(){
         return maxHealth;
     }
@@ -40,6 +47,9 @@ public class Ship{
     }
 
     // Setters
+    public void setName(String name){
+        this.name = name;
+    }
     public void setMaxHealth(double maxHealth){
         this.maxHealth = maxHealth;
     }

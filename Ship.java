@@ -1,0 +1,62 @@
+public class Ship{
+    double maxHealth = 0;
+    double currentHealth = 0;
+    double cannonDamage = 0;
+    int price = 0;
+    int aura = 0;
+
+    public Ship(){
+        this.maxHealth = 100;
+        this.currentHealth = 100;
+        this.cannonDamage = 10;
+        this.price = 50;
+    }
+
+    public Ship(double maxHealth, double currentHealth, double cannonDamage, int price){
+        this.maxHealth = maxHealth;
+        this.currentHealth = currentHealth;
+        this.cannonDamage = cannonDamage;
+        this.price = price;
+    }
+
+    // Getters
+    public double getMaxHealth(){
+        return maxHealth;
+    }
+
+    public double getCurrentHealth(){
+        return currentHealth;
+    }
+
+    public double getCannonDamage(){
+        return cannonDamage;
+    }
+
+    public int getPrice(){
+        return price;
+    }
+    public int getAura(){
+        return aura;
+    }
+
+    // Setters
+    public void setMaxHealth(double maxHealth){
+        this.maxHealth = maxHealth;
+    }
+
+    public void setCurrentHealth(double currentHealth){
+        this.currentHealth = currentHealth;
+    }
+
+    public void setCannonDamage(double cannonDamage){
+        this.cannonDamage = cannonDamage;
+    }
+
+    public void setPrice(int price){
+        this.price = price;
+    }
+    public void setAura(int aura){
+        this.aura = aura;
+    }
+    //Getters and setters were made with AI.
+}

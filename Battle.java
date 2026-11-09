@@ -18,45 +18,43 @@ public class Battle {
         double timeTaken = (double) (afterTime - currentTime) / 1000.0;      
 
         double time = x;
-        System.out.println("You were " + Math.abs(timeTaken-time) + " seconds off");
+        System.out.println("You were " + Math.abs(timeTaken-time) + " off");
         if (timeTaken == x) {
-            System.out.println("You did " + (damage*2.5) + " much damage!");
+            System.out.println("You did " + (damage*2.5) + " much damage");
             return damage*2.5;
         } else if(Math.abs(timeTaken-time) <= (time*.05)) {
-            System.out.println("You did " + (damage*1.5) + " much damage!");
+            System.out.println("You did " + (damage*1.5) + " much damage");
             return damage*1.5;
         } else {
-            System.out.println("You did " + (damage) + " much damage!");
+            System.out.println("You did " + (damage) + " much damage");
             return damage;
         }
     }
-
     public void mainBattle(Ship playerShip, Ship enemyShip, Wallet purse) {
-        double currentDamage;
+
         double enemyCanonDamage = (playerShip.getAura()>=10) ? enemyShip.getCannonDamage()*.5 : (playerShip.getAura()>=5) ? enemyShip.getCannonDamage()*.3 : (playerShip.getAura()>=3) ? enemyShip.getCannonDamage()*.2 : enemyShip.getCannonDamage();
         double playerCanonDamage = playerShip.getCannonDamage();
-        String x;
 
-
-        System.out.println("You have entered a battle against " + enemyShip.getName());
+        System.out.println("You have encourtered the " + enemyShip.getName());
+        System.out.println("");
 
         while (playerShip.getCurrentHealth() > 0 && enemyShip.getCurrentHealth() > 0) {
-            System.out.println("Enemy ship health:" + enemyShip.getCurrentHealth() + "Enemy ship damage: " + enemyCanonDamage);
-            System.out.println("Your ship health:" + playerShip.getCurrentHealth() + "Your ship damage: " + playerCanonDamage);
-
+            System.out.println("Your health: " + playerShip.getCurrentHealth() + " Your damage: " + playerCanonDamage);
+            System.out.println("Enemy health: " + enemyShip.getCurrentHealth() + " Enemy damage: " + enemyCanonDamage);
             System.out.println();
-            System.out.print("Type A to attack and type F to flee: ");
+            System.out.println();
 
-            x = input.nextLine();
-            while (x.toUpperCase().charAt(0) != 'A' && x.toUpperCase().charAt(0) != 'F') {
-                System.out.println("Only enter either A or F");
-                x = input.nextLine();
+            System.out.print("Type A to attack, F to flee");
+            String response = input.nextLine();
+            while (response.toUpperCase().charAt(0) != 'A' && response.toUpperCase().charAt(0) != 'F') {
+                System.out.println("Please enter either A or F");
             }
-            enemyShip.addCurrentHealth(battler(((int)(Math.random()*7+1)), playerCanonDamage));
 
-
+            if (response.toUpperCase().charAt(0) == 'A') {
+                enemyShip.addCurrentHealth(battler(((int)(Math.random()*6+1)), playerCanonDamage));
+            } else {
+                //add fleeing stuff
+            }
         }
     }
-
-
 }

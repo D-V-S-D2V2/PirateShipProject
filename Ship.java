@@ -5,17 +5,16 @@ public class Ship{
     int price = 0;
     int aura = 0;
     String name = "";
-    
 
     public Ship(){
         this.maxHealth = 100;
         this.currentHealth = 100;
         this.cannonDamage = 10;
         this.price = 50;
-        this.name = "Ship";
+        this.name = "Default Ship";
     }
 
-    public Ship(String name, double maxHealth, double currentHealth, double cannonDamage, int price){
+    public Ship(String name,double maxHealth, double currentHealth, double cannonDamage, int price){
         this.maxHealth = maxHealth;
         this.currentHealth = currentHealth;
         this.cannonDamage = cannonDamage;
@@ -24,9 +23,6 @@ public class Ship{
     }
 
     // Getters
-    public String getName(){
-        return name;
-    }
     public double getMaxHealth(){
         return maxHealth;
     }
@@ -45,11 +41,11 @@ public class Ship{
     public int getAura(){
         return aura;
     }
+    public String getName(){
+        return name;
+    }
 
     // Setters
-    public void setName(String name){
-        this.name = name;
-    }
     public void setMaxHealth(double maxHealth){
         this.maxHealth = maxHealth;
     }
@@ -67,6 +63,13 @@ public class Ship{
     }
     public void setAura(int aura){
         this.aura = aura;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public void addCurrentHealth(double damage){
+        this.currentHealth -= damage;
     }
     //Getters and setters were made with AI.
 }

@@ -19,7 +19,7 @@ public class Battle {
 
         double time = x;
         System.out.println("You were " + Math.abs(timeTaken-time) + " off");
-        if (timeTaken == x) {
+        if (Math.abs(timeTaken - time) <= 0.05) {
             System.out.println("You did " + (damage*2.5) + " much damage");
             return damage*2.5;
         } else if(Math.abs(timeTaken-time) <= (time*.05)) {
@@ -35,7 +35,7 @@ public class Battle {
         double enemyCanonDamage = (playerShip.getAura()>=10) ? enemyShip.getCannonDamage()*.5 : (playerShip.getAura()>=5) ? enemyShip.getCannonDamage()*.3 : (playerShip.getAura()>=3) ? enemyShip.getCannonDamage()*.2 : enemyShip.getCannonDamage();
         double playerCanonDamage = playerShip.getCannonDamage();
 
-        System.out.println("You have encourtered the " + enemyShip.getName());
+        System.out.println("You have encountered the " + enemyShip.getName());
         System.out.println("");
 
         while (playerShip.getCurrentHealth() > 0 && enemyShip.getCurrentHealth() > 0) {
@@ -48,6 +48,7 @@ public class Battle {
             String response = input.nextLine();
             while (response.toUpperCase().charAt(0) != 'A' && response.toUpperCase().charAt(0) != 'F') {
                 System.out.println("Please enter either A or F");
+                response = input.nextLine();
             }
 
             if (response.toUpperCase().charAt(0) == 'A') {
